@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- launchd agent (macOS). Adjust paths, copy to ~/Library/LaunchAgents/, then:
+     launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.example.paperclip-telegram.plist -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+  <key>Label</key><string>com.example.paperclip-telegram</string>
+  <key>ProgramArguments</key><array>
+    <string>/usr/local/bin/node</string>
+    <string>/path/to/paperclip-telegram/src/index.mjs</string>
+  </array>
+  <key>EnvironmentVariables</key><dict>
+    <key>PT_ENV_FILE</key><string>/path/to/paperclip-telegram/.env</string>
+  </dict>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>StandardOutPath</key><string>/tmp/paperclip-telegram.log</string>
+  <key>StandardErrorPath</key><string>/tmp/paperclip-telegram.log</string>
+</dict></plist>

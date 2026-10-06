@@ -1,0 +1,15 @@
+{
+  "name": "paperclip-telegram",
+  "version": "0.1.0",
+  "description": "Answer Paperclip agent approvals and questions from Telegram with inline buttons. No inbound port, no model tokens.",
+  "type": "module",
+  "bin": { "paperclip-telegram": "src/index.mjs" },
+  "main": "src/index.mjs",
+  "scripts": {
+    "start": "node src/index.mjs",
+    "check": "node --check src/index.mjs && node --check src/config.mjs && node --check src/i18n.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "keywords": ["paperclip", "telegram", "telegram-bot", "ai-agents", "claude-code", "human-in-the-loop", "approvals"],
+  "license": "MIT"
+}
