@@ -5,7 +5,7 @@
 Your agents stop and ask: *"Can I merge this PR?"*, *"Which pricing model?"*, *"Deploy to production?"*
 Instead of opening the board, you get the card on your phone and tap the answer. The answer is written back to Paperclip and the agent continues.
 
-![Telegram screenshot](docs/screenshot.png)
+<p align="center"><img src="docs/demo.gif" width="380" alt="paperclip-telegram demo: /status, approve a merge, answer a question"></p>
 
 - ✅ **Confirmation cards** → *Approve / Reject* buttons (your agent's own labels)
 - ❓ **Question forms** → one message per question, one button per option; answers are sent together when the form is complete
