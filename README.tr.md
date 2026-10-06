@@ -8,6 +8,7 @@ Ajan durup soruyor: *"Bu PR'ı birleştireyim mi?"*, *"Hangi fiyat modeli?"*. Pa
 - ❓ Soru formları → her soru ayrı mesaj, her seçenek ayrı düğme; form tamamlanınca cevaplar birlikte gönderilir
 - 🟢 `/status` → çalışan ajanlar ve sizi bekleyen her şey
 - ⚠️ Başarısız ajan çalışmalarında kısa uyarı
+- ♻️ Yeniden başlatmaya dayanıklı: servis olarak çalışır, açık bir Claude oturumuna bağlı değildir. Makine yeniden başlasa da kartlar Paperclip sunucusunda durur, soru sizi yine bekler, cevabınız ajana yine ulaşır.
 - 🔒 Tek izinli sohbet, açık port yok, model token'ı harcamaz, bağımlılık yok
 
 ## Kurulum

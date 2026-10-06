@@ -12,6 +12,7 @@ Instead of opening the board, you get the card on your phone and tap the answer.
 - 🟢 **`/status`** → running agents and everything waiting for you, re-sent with fresh buttons
 - ⚠️ **Failed agent runs** → a short alert (routine self-healing errors are ignored)
 - 🔕 **Done issues** → optional, silent notification
+- ♻️ **Survives reboots.** It runs as a service and doesn't depend on an open Claude session. Remote-control style bridges die with the session when the machine restarts; here the cards live on the Paperclip server, so the question is still waiting for you and your answer still reaches the agent.
 - 🔒 **Single allowed chat**, no inbound port (long polling), **no model tokens** — it only talks to the Paperclip API and the Telegram Bot API
 - 📦 **Zero dependencies** — one Node.js process (≥ 20)
 
