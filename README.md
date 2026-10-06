@@ -67,6 +67,10 @@ All settings are environment variables (or a `.env` file). Secrets can also be r
 
 Every `PT_POLL_SECONDS` the bot lists pending interactions on open issues (`GET /api/issues/:id/interactions`). New ones are sent with inline keyboards. A button press calls `accept`, `reject` or `respond` on the same interaction. Multi-question forms are collected locally and submitted in one call, because Paperclip closes a form on its first response.
 
+## See also
+
+[paperclip-watchdog](https://github.com/iosayin/paperclip-watchdog): finds stuck agent tasks and unsticks them (answered cards, finished dependencies, CI, broken sessions). Pair it with this bot: the watchdog keeps work moving, this bot brings the real questions to your phone.
+
 ## License
 
 MIT

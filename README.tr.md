@@ -19,3 +19,5 @@ Ajan durup soruyor: *"Bu PR'ı birleştireyim mi?"*, *"Hangi fiyat modeli?"*. Pa
 5. Servis olarak çalıştırmak için [`examples/`](examples) (systemd, launchd, Docker).
 
 Ayrıntılar ve güvenlik notları için [README.md](README.md).
+
+Takılan işleri kendiliğinden toparlayan eşlikçi araç: [paperclip-watchdog](https://github.com/iosayin/paperclip-watchdog).
