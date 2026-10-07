@@ -87,6 +87,8 @@ Every `PT_POLL_SECONDS` the bot lists pending interactions on open issues (`GET 
 
 [paperclip-watchdog](https://github.com/iosayin/paperclip-watchdog): finds stuck agent tasks and unsticks them (answered cards, finished dependencies, CI, broken sessions). Pair it with this bot: the watchdog keeps work moving, this bot brings the real questions to your phone.
 
+Using Claude Code for long tasks? [claude-code-notebook](https://github.com/iosayin/claude-code-notebook) keeps the working state across context compaction.
+
 ## License
 
 MIT
