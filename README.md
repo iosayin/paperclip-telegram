@@ -49,7 +49,7 @@ All settings are environment variables (or a `.env` file). Secrets can also be r
 | `TELEGRAM_CHAT_ID` | — | the only chat the bot listens to |
 | `PAPERCLIP_URL` | `http://localhost:3100` | |
 | `PAPERCLIP_TOKEN` | — | required, board API token |
-| `PT_LANG` | `en` | `en`, `tr` |
+| `PT_LANG` | `en` | `en`, `tr`, `zh` (Simplified Chinese; set `PT_LANG=zh`) |
 | `PT_POLL_SECONDS` | `60` | how often new cards are checked (min 15) |
 | `PT_NOTIFY_FAILED_RUNS` | `true` | |
 | `PT_NOTIFY_DONE` | `false` | silent message when an issue is done |
