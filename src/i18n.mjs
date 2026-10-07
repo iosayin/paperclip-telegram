@@ -64,6 +64,38 @@ export const STRINGS = {
     runFailed: (company, ident, agent, code) => `⚠️ ${company}: ajan çalışması başarısız${ident ? ` (${ident})` : ""}${agent ? ` · ${agent}` : ""}: ${code}`,
     issueDone: (ident, title) => `✅ ${ident} bitti: ${title}`,
   },
+  zh: {
+    help:
+      "Paperclip 机器人已就绪。\n" +
+      "/status — 正在运行的智能体及待批准的请求和待回答的问题（含按钮）\n" +
+      "/backlog — 机器人启动前的待处理卡片，每次显示 3 张\n" +
+      "/help — 显示此帮助",
+    notAllowed: (id) =>
+      `此聊天未获授权。要使用此机器人，请在服务器上设置 TELEGRAM_CHAT_ID=${id} 并重启机器人。`,
+    approve: "批准",
+    reject: "拒绝",
+    questions: "问题",
+    formIntro: (n) => `共 ${n} 个问题。全部回答后，答案将一并发送到 Paperclip。`,
+    cardGone: "此卡片已失效。",
+    approved: "已批准",
+    rejected: "已拒绝",
+    failed: "操作失败 — 请查看 Paperclip 看板",
+    resultApproved: "✅ 已批准",
+    resultRejected: "❌ 已拒绝",
+    resultFailed: "⚠️ 无法处理（卡片可能已关闭）",
+    selected: (l) => `已选择：${l}`,
+    formSent: "📨 答案已发送到 Paperclip",
+    formFailed: "⚠️ 无法发送答案 — 请查看 Paperclip 看板",
+    rejectReason: "已通过 Telegram 拒绝。",
+    otherText: "已通过 Telegram 回答。",
+    running: (n) => `🟢 正在运行的智能体：${n}`,
+    pendingNow: (n) => `❓ 待处理卡片：${n}${n ? " — 见下方" : "（暂无待处理卡片）"}`,
+    backlogNote: (n) => `🗂 较早的待处理卡片：${n}${n ? "（使用 /backlog 查看）" : ""}`,
+    backlogEmpty: "没有较早的待处理卡片。",
+    backlogMore: (n) => `还有 ${n} 张卡片 — 请再次发送 /backlog`,
+    runFailed: (company, ident, agent, code) => `⚠️ ${company}：智能体运行失败${ident ? `，任务：${ident}` : ""}${agent ? `（${agent}）` : ""}：${code}`,
+    issueDone: (ident, title) => `✅ ${ident} 已完成：${title}`,
+  },
 };
 
 export function strings(lang) {
