@@ -1,5 +1,7 @@
 # paperclip-telegram
 
+[![npm](https://img.shields.io/npm/v/paperclip-telegram?color=cb3837&logo=npm)](https://www.npmjs.com/package/paperclip-telegram) [![license](https://img.shields.io/github/license/iosayin/paperclip-telegram)](LICENSE) ![node](https://img.shields.io/badge/node-%E2%89%A520-339933?logo=node.js&logoColor=white) ![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)
+
 **Approve, reject and answer your [Paperclip](https://github.com/paperclipai/paperclip) agents from Telegram — with buttons.**
 
 Your agents stop and ask: *"Can I merge this PR?"*, *"Which pricing model?"*, *"Deploy to production?"*
@@ -16,11 +18,24 @@ Instead of opening the board, you get the card on your phone and tap the answer.
 - 🔒 **Single allowed chat**, no inbound port (long polling), **no model tokens** — it only talks to the Paperclip API and the Telegram Bot API
 - 📦 **Zero dependencies** — one Node.js process (≥ 20)
 
+## Install
+
+Run it straight from npm (Node ≥ 20, no clone):
+
+```bash
+# settings in .env (see .env.example)
+npx paperclip-telegram --check
+npx paperclip-telegram
+```
+
+Or clone the repo, as in the quick start below.
+
 ## Quick start (5 minutes)
 
 1. **Create a bot**: message [@BotFather](https://t.me/BotFather) → `/newbot` → copy the token.
 2. **Get a Paperclip board token** for the account that answers cards (the one you use on the board).
 3. **Configure**:
+
    ```bash
    git clone https://github.com/iosayin/paperclip-telegram && cd paperclip-telegram
    cp .env.example .env    # fill TELEGRAM_BOT_TOKEN, PAPERCLIP_URL, PAPERCLIP_TOKEN

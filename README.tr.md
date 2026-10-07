@@ -11,6 +11,8 @@ Ajan durup soruyor: *"Bu PR'ı birleştireyim mi?"*, *"Hangi fiyat modeli?"*. Pa
 - ♻️ Yeniden başlatmaya dayanıklı: servis olarak çalışır, açık bir Claude oturumuna bağlı değildir. Makine yeniden başlasa da kartlar Paperclip sunucusunda durur, soru sizi yine bekler, cevabınız ajana yine ulaşır.
 - 🔒 Tek izinli sohbet, açık port yok, model token'ı harcamaz, bağımlılık yok
 
+Kurulumsuz çalıştırma: `npx paperclip-telegram --check` sonra `npx paperclip-telegram` (ayarlar `.env` dosyasında). npm: https://www.npmjs.com/package/paperclip-telegram
+
 ## Kurulum
 
 1. [@BotFather](https://t.me/BotFather) → `/newbot` → token'ı alın.
