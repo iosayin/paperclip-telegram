@@ -45,6 +45,13 @@ async function pc(route, options = {}) {
 const list = (x) => (Array.isArray(x) ? x : x?.items ?? x?.data ?? []);
 const clip = (s, n) => (s ?? "").toString().replace(/\s+/g, " ").trim().slice(0, n);
 const esc = (s) => (s ?? "").toString().replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+const escAttr = (s) => esc(s).replace(/"/g, "&quot;");
+// Deep link to the issue on the Paperclip board (issue #2): PAPERCLIP_URL plus
+// the company prefix plus the issue identifier, e.g. http://localhost:3100/acme/ACME-123.
+const boardUrl = (company, issue) => {
+  const prefix = company.prefix ?? company.id;
+  return `${cfg.paperclipUrl}/${encodeURIComponent(prefix)}/${encodeURIComponent(issue.identifier)}`;
+}
 const newKey = () => (++S.counter).toString(36);
 const send = (text, extra = {}) => tg("sendMessage", { chat_id: cfg.chatId, text: text.slice(0, 4000), parse_mode: "HTML", disable_web_page_preview: true, ...extra });
 
@@ -70,10 +77,13 @@ async function sendCard({ company, issue, card }) {
     const k = newKey();
     S.open[k] = { type: "confirm", issueId: issue.id, cardId: card.id, ident: issue.identifier };
     const body = clip(p.detailsMarkdown || p.prompt, 1500);
+    const url = escAttr(boardUrl(company, issue));
     await send(`${head}\n\n✅ <b>${esc(clip(card.title || p.prompt, 300))}</b>${body ? `\n\n${esc(body)}` : ""}`, {
       reply_markup: { inline_keyboard: [[
         { text: clip(p.acceptLabel || T.approve, 40), callback_data: `a:${k}` },
         { text: clip(p.rejectLabel || T.reject, 40), callback_data: `r:${k}` },
+      ], [
+        { text: T.openBoard, url },
       ]] },
     });
   } else if (card.kind === "ask_user_questions") {
@@ -83,7 +93,8 @@ async function sendCard({ company, issue, card }) {
       type: "form", issueId: issue.id, cardId: card.id, ident: issue.identifier, answers: {},
       questions: questions.map((q) => ({ id: q.id, options: (q.options ?? []).map((o) => o.id), labels: (q.options ?? []).map((o) => o.label) })),
     };
-    await send(`${head}\n\n❓ <b>${esc(card.title || p.title || T.questions)}</b> — ${T.formIntro(questions.length)}`);
+    const url = escAttr(boardUrl(company, issue));
+    await send(`${head}\n\n❓ <b>${esc(card.title || p.title || T.questions)}</b> — ${T.formIntro(questions.length)}\n🔗 <a href="${url}">${esc(T.openBoard)}</a>`);
     for (const [i, q] of questions.entries()) {
       const rows = (q.options ?? []).map((o, j) => [{ text: clip(o.label, 60), callback_data: `q:${k}:${i}:${j}` }]);
       const notes = (q.options ?? []).filter((o) => o.description).map((o) => `• <b>${esc(clip(o.label, 60))}</b>: ${esc(clip(o.description, 160))}`).join("\n");
