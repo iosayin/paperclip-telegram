@@ -64,6 +64,38 @@ export const STRINGS = {
     runFailed: (company, ident, agent, code) => `⚠️ ${company}: ajan çalışması başarısız${ident ? ` (${ident})` : ""}${agent ? ` · ${agent}` : ""}: ${code}`,
     issueDone: (ident, title) => `✅ ${ident} bitti: ${title}`,
   },
+  de: {
+    help:
+      "Paperclip Bot ist bereit.\n" +
+      "/status — laufende Agenten + offene Genehmigungen/Fragen (mit Buttons)\n" +
+      "/backlog — offene Karten von vor dem Bot-Start, 3 auf einmal\n" +
+      "/help — diese Nachricht",
+    notAllowed: (id) =>
+      `Dieser Chat ist nicht erlaubt. Um den Bot zu nutzen, setze TELEGRAM_CHAT_ID=${id} auf dem Server und starte ihn neu.`,
+    approve: "Genehmigen",
+    reject: "Ablehnen",
+    questions: "Fragen",
+    formIntro: (n) => `${n} Frage(n). Antworten gehen an Paperclip, sobald alle beantwortet sind.`,
+    cardGone: "Diese Karte ist nicht mehr gültig.",
+    approved: "Genehmigt",
+    rejected: "Abgelehnt",
+    failed: "Fehlgeschlagen — schau aufs Paperclip Board",
+    resultApproved: "✅ genehmigt",
+    resultRejected: "❌ abgelehnt",
+    resultFailed: "⚠️ konnte nicht verarbeitet werden (die Karte ist vielleicht geschlossen)",
+    selected: (l) => `Ausgewählt: ${l}`,
+    formSent: "📨 Antworten an Paperclip gesendet",
+    formFailed: "⚠️ Antworten konnten nicht gesendet werden — schau aufs Paperclip Board",
+    rejectReason: "Von Telegram abgelehnt.",
+    otherText: "Von Telegram beantwortet.",
+    running: (n) => `🟢 Laufende Agenten: ${n}`,
+    pendingNow: (n) => `❓ Offene Karten: ${n}${n ? " — unten" : " (nichts wartet auf dich)"}`,
+    backlogNote: (n) => `🗂 Ältere offene Karten: ${n}${n ? " (/backlog nutzen)" : ""}`,
+    backlogEmpty: "Keine älteren offenen Karten.",
+    backlogMore: (n) => `${n} weitere — schick /backlog nochmal`,
+    runFailed: (company, ident, agent, code) => `⚠️ ${company}: Agent-Lauf fehlgeschlagen${ident ? ` auf ${ident}` : ""}${agent ? ` (${agent})` : ""}: ${code}`,
+    issueDone: (ident, title) => `✅ ${ident} fertig: ${title}`,
+  },
 };
 
 export function strings(lang) {
